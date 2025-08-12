@@ -7,6 +7,7 @@ import ListaCategorias from "./components/categorias/listacategorias/listaCatego
 import FormCategoria from "./components/categorias/formcategorias/formCategorias";
 import DeletarCategoria from "./components/categorias/deletarcategorias/deletarCategorias";
 import Login from "./pages/login/Login";
+import Perfil from "./pages/perfil/Perfil";
 
 function App() {
   return (
