@@ -12,6 +12,9 @@ import Login from './pages/login/Login';
 import Perfil from './pages/perfil/Perfil';
 import { AuthProvider } from './context/AuthContext';
 import Cadastro from './pages/cadastro/Cadastro';
+import ListaProdutos from './components/produtos/listarprodutos/ListaProdutos';
+import FormProduto from './components/produtos/formprodutos/FormProduto';
+import DeletarProduto from './components/produtos/deletarprodutos/DeletarProdutos';
 
 function App() {
   return (
@@ -29,9 +32,9 @@ function App() {
           <Route path="/editarcategoria/:id" element={<FormCategoria />} />
           <Route path="/deletarcategoria/:id" element={<DeletarCategoria />} />
           <Route path="/produtos" element={<ListaProdutos />} />
-          <Route path="/cadastrarprodutos" element={<FormProdutos />} />
-          <Route path="/editarprodutos/:id" element={<FormProdutos />} />
-          <Route path="/deletarprodutos/:id" element={<DeletarProdutos />} />
+          <Route path="/cadastrarproduto" element={<FormProduto />} />
+          <Route path="/editarproduto/:id" element={<FormProduto />} />
+          <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
         </Routes>
         <Footer />
       </BrowserRouter>

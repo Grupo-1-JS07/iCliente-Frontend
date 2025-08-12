@@ -5,7 +5,7 @@ export default interface Produtos {
   id: number;
   nome: string;
   descricao: string;
-  preco: string;
+  preco: number;
   disponibilidade: boolean;
   categoria: Categorias | null;
   usuario: Usuarios | null;

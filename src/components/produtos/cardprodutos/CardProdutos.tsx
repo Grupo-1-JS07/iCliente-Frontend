@@ -30,13 +30,6 @@ function CardProdutos({ produto }: CardProdutosProps) {
               {produto.categoria?.descricao}
             </span>
           </p>
-          <p className="text-cyan-200 text-sm">
-            Data:{' '}
-            {new Intl.DateTimeFormat('pt-BR', {
-              dateStyle: 'short',
-              timeStyle: 'short',
-            }).format(new Date(produto.data))}
-          </p>
         </div>
       </div>
       <div className="flex">
