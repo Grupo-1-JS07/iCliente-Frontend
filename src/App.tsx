@@ -9,6 +9,7 @@ import DeletarCategoria from "./components/categorias/deletarcategorias/deletarC
 import Login from "./pages/login/Login";
 import Perfil from "./pages/perfil/Perfil";
 
+
 function App() {
   return (
     <BrowserRouter>

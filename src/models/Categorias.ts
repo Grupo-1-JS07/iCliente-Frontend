@@ -6,3 +6,4 @@ export default interface Categoria {
     descricao: string;
     produto?: Produto[] | null;
 }
+
