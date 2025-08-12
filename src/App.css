@@ -1,3 +1,14 @@
+html,body,#root{
+  height: 100%;
+}
+.app-container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app-container main {
+  flex:1;
+}
 /* Neon link effect for navbar */
 .neon-link {
   position: relative;
@@ -62,11 +73,11 @@
 }
 
 .dashboard-card {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgb(50, 3, 56);
   box-shadow:
     0 0 24px 4px #00fff7,
     0 0 80px 0 #6d28d9,
-    0 8px 32px 0 rgba(0,255,255,0.15);
+    0 8px 32px 0 rgba(15, 124, 124, 0.15);
   backdrop-filter: blur(16px) saturate(180%);
   border-radius: 1rem; /* rounded-2xl */
   border: 1.5px solid rgba(0,255,255,0.18);

@@ -92,7 +92,7 @@ function FormProduto() {
       }
     } else {
       try {
-        await cadastrar(`/produtos`, { ...produto, }, setProduto, {
+        await cadastrar(`/produtos`, { ...produto, categoria }, setProduto, {
           headers: { Authorization: token },
         });
         ToastAlerta('Produto cadastrado com sucesso!', 'sucesso');

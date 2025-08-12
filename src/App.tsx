@@ -23,7 +23,9 @@ function App() {
     <AuthProvider>
       <ToastContainer />
       <BrowserRouter>
+      <div className='app-container min-h-screen flex flex-col'>
         <NavbarWrapper />
+        <main className="flex-1">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
@@ -39,7 +41,9 @@ function App() {
           <Route path="/editarproduto/:id" element={<FormProduto />} />
           <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
         </Routes>
+        </main>
         <Footer />
+        </div>
       </BrowserRouter>
     </AuthProvider>
   );

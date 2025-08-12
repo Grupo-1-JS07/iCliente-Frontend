@@ -60,8 +60,8 @@ function Home() {
                   className="inline-block w-3 h-3 rounded-full"
                   style={{ background: m.color }}
                 ></span>
-                <span className="text-cyan-100 font-semibold">{m.label}</span>
-                <span className="text-cyan-300 font-bold">{m.value}</span>
+                <span className="text-cyan-500 font-semibold">{m.label}</span>
+                <span className="text-cyan-500 font-bold">{m.value}</span>
               </div>
             ))}
           </div>
@@ -69,16 +69,16 @@ function Home() {
       </div>
 
       {/* Card de notificações */}
-      <div className="dashboard-card flex flex-col gap-3 min-h-[180px] md:min-h-[260px] bg-gradient-to-br from-[#0f0026]/90 via-[#1a0a3c]/90 to-[#0a0026]/90 border border-cyan-400/40 shadow-2xl backdrop-blur-xl">
-        <h2 className="text-xl font-bold text-cyan-200 mb-2">Notificações</h2>
+      <div className="dashboard-card flex flex-col gap-3 min-h-[180px] md:min-h-[260px]">
+        <h2 className="text-xl font-bold text-cyan-400 mb-2">Notificações</h2>
         <ul className="flex-1 flex flex-col gap-2">
           {notifications.map((n) => (
             <li
               key={n.id}
-              className="flex justify-between items-center bg-cyan-400/5 rounded-lg px-3 py-2"
+              className="flex justify-between items-center bg-cyan-500/5 rounded-lg px-3 py-2"
             >
-              <span className="text-cyan-100 text-sm">{n.text}</span>
-              <span className="text-xs text-cyan-400 ml-2 whitespace-nowrap">
+              <span className="text-cyan-400 text-sm">{n.text}</span>
+              <span className="text-xs text-cyan-600 ml-2 whitespace-nowrap">
                 {n.time}
               </span>
             </li>
