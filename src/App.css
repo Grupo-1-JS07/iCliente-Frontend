@@ -1,0 +1,112 @@
+.neon-link {
+  position: relative;
+  color: #a5f3fc;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.neon-link:hover,
+.neon-link:focus {
+  color: #fff;
+  text-shadow:
+    0 0 8px #00fff7,
+    0 0 16px #6d28d9;
+}
+.neon-box {
+  box-shadow:
+    0 0 24px 4px #00fff7,
+    0 0 80px 0 #6d28d9;
+}
+.neon-btn {
+  box-shadow:
+    0 0 16px 2px #00fff7,
+    0 0 32px 0 #6d28d9;
+}
+
+@keyframes bg-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.animate-bg-move {
+  background-size: 200% 200%;
+  animation: bg-move 8s linear infinite alternate;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.15);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 18px;
+  border: 1.5px solid rgba(0, 255, 255, 0.18);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #00fff7 0%, #6d28d9 100%);
+  border-radius: 8px;
+}
+
+.dashboard-card {
+  background: linear-gradient(120deg, #182848cc 0%, #2c5364cc 100%);
+  box-shadow:
+    0 0 24px 4px #00fff7,
+    0 0 80px 0 #6d28d9;
+  backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 18px;
+  border: 1.5px solid rgba(0, 255, 255, 0.18);
+  min-width: 220px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+.dashboard-card:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 32px 8px #00fff7,
+    0 0 120px 0 #6d28d9;
+}
+
+.futuristic-btn {
+  box-shadow:
+    0 0 16px 2px #00fff7,
+    0 0 32px 0 #6d28d9;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #22d3ee 0%, #818cf8 50%, #a21caf 100%);
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition:
+    filter 0.2s,
+    box-shadow 0.2s;
+}
+.futuristic-btn:hover {
+  filter: brightness(1.15) drop-shadow(0 0 8px #00fff7);
+}
