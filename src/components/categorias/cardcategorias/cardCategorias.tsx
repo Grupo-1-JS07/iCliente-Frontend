@@ -1,23 +1,26 @@
+import type { Link } from "lucide-react"
+import type Categoria from "../../../models/Categorias"
+
 interface CardCategoriasProps{
-    tema: Categoria
+    categoria: Categoria
 }
 
-function CardCategorias({ tema }: CardCategoriasProps) {
+function CardCategorias({ categoria }: CardCategoriasProps) {
     return (
         <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
             <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>
-                Tema
+                Categoria
             </header>
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
+            <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.descricao}</p>
             
             <div className="flex">
-                 <Link to={`/editartema/${tema.id}`}
+                 <Link to={`/editartema/${categoria.id}`}
 	className='w-full text-slate-100 bg-	indigo-400 hover:bg-indigo-800 
     flex items-center justify-center py-2'>
 	<button>Editar</button>
                 </Link>
 
-                <Link to={`/deletartema/${tema.id}`} 
+                <Link to={`/deletartema/${categoria.id}`} 
 	className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
 		flex items-center justify-center'>
 	<button>Deletar</button>
@@ -28,4 +31,4 @@ function CardCategorias({ tema }: CardCategoriasProps) {
     )
 }
 
-export default CardTemas
+export default CardCategorias
