@@ -1,3 +1,6 @@
+import type Produto from "./Produtos";
+
+
 export default interface Categoria {
     id: number;
     descricao: string;
