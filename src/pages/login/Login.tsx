@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useContext, useEffect, useState, type ChangeEvent } from "react";
+import { type ChangeEvent, useContext, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
-import type UsuarioLogin from "../../models/UsuarioLogin";
 import { AuthContext } from "../../context/AuthContext";
+import type UsuarioLogin from "../../models/UsuarioLogin";
 
 function Login() {
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ function Login() {
           <button
             type="submit"
             className="rounded bg-indigo-400 flex justify-center
-                                   hover:bg-indigo-900 text-white w-1/2 py-2"
+                                hover:bg-indigo-900 text-white w-1/2 py-2"
           >
             {isLoading ? (
               <RotatingLines
