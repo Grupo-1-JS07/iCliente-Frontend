@@ -14,6 +14,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/perfil" element={<Perfil />} />
         <Route path="/home" element={<Home />} />
         <Route path="/categorias" element={<ListaCategorias />} />
         <Route path="/cadastrarcategorias" element={<FormCategoria />} />
