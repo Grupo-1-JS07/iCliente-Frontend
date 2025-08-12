@@ -1,4 +1,4 @@
-import type { Link } from "lucide-react"
+import { Link } from "lucide-react"
 import type Categoria from "../../../models/Categorias"
 
 interface CardCategoriasProps{
