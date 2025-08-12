@@ -21,14 +21,15 @@ function Navbar() {
       >
         <div className="container flex justify-between text-lg">
           <Link to="/home" className="text-2xl font-bold">
-            Blog Pessoal
+            iCliente
           </Link>
 
           <div className="flex gap-4">
-            Postagens Temas Cadastrar tema Perfil
-            <Link to="" onClick={logout} className="hover:underline">
-              Sair
-            </Link>
+            <Link to='/produtos' className='hover:underline'>Produtos</Link>
+            <Link to='/categorias' className='hover:underline'>Categorias</Link>
+            <Link to='/cadastrarcategorias' className='hover:underline'>Cadastrar Categoria</Link>
+            <Link to='/perfil' className='hover:underline'>Perfil</Link>
+            <Link to="" onClick={logout} className="hover:underline">Sair</Link>
           </div>
         </div>
       </div>

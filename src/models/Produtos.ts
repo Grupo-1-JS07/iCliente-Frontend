@@ -1,3 +1,6 @@
+import type Categorias from "./Categorias";
+import type Usuarios from "./Usuarios";
+
 export default interface Produtos {
   id: number;
   nome: string;
