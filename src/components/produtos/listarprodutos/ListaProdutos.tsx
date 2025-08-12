@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
 import { DNA } from 'react-loader-spinner';
@@ -5,6 +6,7 @@ import type Produtos from '../../../models/Produtos';
 import { AuthContext } from '../../../context/AuthContext';
 import { buscar } from '../../../services/Services';
 import CardProdutos from '../cardprodutos/CardProdutos';
+import { ToastAlerta } from '../../../utils/ToastAlerta';
 
 function ListaProdutos() {
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ function ListaProdutos() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado');
+      ToastAlerta('Você precisa estar logado!', 'info');
       navigate('/');
     }
   }, [token]);

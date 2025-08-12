@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type ChangeEvent, useState, useEffect, useContext } from 'react';
 import { RotatingLines } from 'react-loader-spinner';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -5,6 +6,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import { buscar, atualizar, cadastrar } from '../../../services/Services';
 import type Produtos from '../../../models/Produtos';
 import type Categoria from '../../../models/Categorias';
+import { ToastAlerta } from '../../../utils/ToastAlerta';
 
 function FormProduto() {
   const navigate = useNavigate();
@@ -46,7 +48,7 @@ function FormProduto() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado');
+      ToastAlerta('Você precisa estar logado!', 'info');
       navigate('/');
     }
   }, [navigate, token]);
@@ -80,12 +82,12 @@ function FormProduto() {
         await atualizar(`/produtos`, { ...produto, categoria }, setProduto, {
           headers: { Authorization: token },
         });
-        alert('Produto atualizado com sucesso!');
+        ToastAlerta('Produto atualizado com sucesso!', 'sucesso');
       } catch (error: any) {
         if (error.toString().includes('401')) {
           handleLogout();
         } else {
-          alert('Erro ao atualizar o produto.');
+          ToastAlerta('Erro ao atualizar o produto!', 'erro');
         }
       }
     } else {
@@ -93,12 +95,12 @@ function FormProduto() {
         await cadastrar(`/produtos`, { ...produto, }, setProduto, {
           headers: { Authorization: token },
         });
-        alert('Produto cadastrado com sucesso!');
+        ToastAlerta('Produto cadastrado com sucesso!', 'sucesso');
       } catch (error: any) {
         if (error.toString().includes('401')) {
           handleLogout();
         } else {
-          alert('Erro ao cadastrar o produto.');
+          ToastAlerta('Erro ao cadastrar o produto!', 'erro');
         }
       }
     }

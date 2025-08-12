@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { ToastAlerta } from '../../utils/ToastAlerta';
 
 function Perfil() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ function Perfil() {
 
   useEffect(() => {
     if (usuario.token === '') {
-      alert('Você precisa estar logado');
+      ToastAlerta('Você precisa estar logado!', 'info');
       navigate('/');
     }
   }, [usuario.token]);
@@ -28,8 +29,8 @@ function Perfil() {
             src={usuario.foto}
             alt={`Foto de perfil de ${usuario.nome}`}
             onError={(e) =>
-              (e.currentTarget.src =
-                'https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff')
+            (e.currentTarget.src =
+              'https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff')
             }
           />
           <div className="mt-6 flex flex-col items-center gap-2 w-full px-6 pb-8">

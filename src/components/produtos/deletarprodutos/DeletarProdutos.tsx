@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 import type Produtos from "../../../models/Produtos";
 import { AuthContext } from "../../../context/AuthContext";
 import { buscar, deletar } from "../../../services/Services";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function DeletarProduto() {
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ function DeletarProduto() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Você precisa estar logado!", 'info');
       navigate("/");
     }
   }, [token]);
@@ -53,12 +55,12 @@ function DeletarProduto() {
         },
       });
 
-      alert("Produto apagado com sucesso");
+      ToastAlerta("Produto apagado com sucesso!", 'sucesso');
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
       } else {
-        alert("Erro ao deletar o produto.");
+        ToastAlerta("Erro ao deletar o produto!", 'erro');
       }
     }
 

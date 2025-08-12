@@ -15,10 +15,13 @@ import Cadastro from './pages/cadastro/Cadastro';
 import ListaProdutos from './components/produtos/listarprodutos/ListaProdutos';
 import FormProduto from './components/produtos/formprodutos/FormProduto';
 import DeletarProduto from './components/produtos/deletarprodutos/DeletarProdutos';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
     <AuthProvider>
+      <ToastContainer />
       <BrowserRouter>
         <NavbarWrapper />
         <Routes>
