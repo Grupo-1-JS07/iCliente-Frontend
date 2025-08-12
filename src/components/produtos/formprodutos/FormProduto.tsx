@@ -4,6 +4,7 @@ import { RotatingLines } from "react-loader-spinner";
 import type Produtos from "../../../models/Produtos";
 import { AuthContext } from "../../../context/AuthContext";
 import { buscar, atualizar, cadastrar } from "../../../services/Services";
+import type Categoria from "../../../models/Categorias";
 
 function FormProduto() {
   const navigate = useNavigate();
