@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from 'react';
 import { DNA } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
@@ -5,6 +6,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import { buscar } from '../../../services/Services';
 import CardCategorias from '../cardcategorias/cardCategorias';
 import type Categoria from '../../../models/Categorias';
+import { ToastAlerta } from '../../../utils/ToastAlerta';
 
 function ListaCategorias() {
   const navigate = useNavigate();
@@ -28,7 +30,7 @@ function ListaCategorias() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado!');
+      ToastAlerta('Você precisa estar logado!', 'info');
       navigate('/');
     }
   }, [token]);
