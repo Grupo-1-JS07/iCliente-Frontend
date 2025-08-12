@@ -90,7 +90,7 @@ function FormProduto() {
       }
     } else {
       try {
-        await cadastrar(`/produtos`, { ...produto, }, setProduto, {
+        await cadastrar(`/produtos`, { ...produto, categoria }, setProduto, {
           headers: { Authorization: token },
         });
         alert('Produto cadastrado com sucesso!');
