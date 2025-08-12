@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { AuthContext } from "../../contexts/AuthContext";
-import { ChangeEvent, useContext, useEffect, useState } from "react";
-import UsuarioLogin from "../../models/UsuarioLogin";
+import { useContext, useEffect, useState, type ChangeEvent } from "react";
 import { RotatingLines } from "react-loader-spinner";
+import type UsuarioLogin from "../../models/UsuarioLogin";
+import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
   const navigate = useNavigate();
