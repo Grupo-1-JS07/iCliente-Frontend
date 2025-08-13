@@ -94,7 +94,7 @@ function FormCategoria() {
   return (
     <div className="container flex flex-col items-center justify-center mx-auto min-h-screen">
       <h1 className="text-4xl text-center my-8 text-cyan-300 font-extrabold drop-shadow-[0_2px_20px_rgba(0,255,255,0.7)]">
-        {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
+        {id === undefined ? 'Cadastrar Squad/Area' : 'Editar Squad/Area'}
       </h1>
       <form
         className="w-full max-w-lg flex flex-col gap-6 backdrop-blur-md bg-gradient-to-br from-[#1a0a3c]/80 to-[#0a0026]/80 border border-cyan-400/40 shadow-2xl rounded-2xl px-10 py-8 neon-box"
@@ -105,7 +105,7 @@ function FormCategoria() {
             htmlFor="descricao"
             className="text-cyan-200 text-sm font-semibold"
           >
-            Descrição da Categoria
+            Descrição do Squad/Area
           </label>
           <input
             type="text"

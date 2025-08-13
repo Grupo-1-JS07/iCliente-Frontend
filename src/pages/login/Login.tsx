@@ -100,7 +100,7 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg hover:from-cyan-300 hover:to-purple-400 text-white font-bold py-2 text-lg transition-all duration-200 neon-btn"
+            className="flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg hover:from-cyan-300 hover:to-purple-400 text-white font-bold py-2 text-lg transition-all duration-200 neon-btn"
           >
             {isLoading ? (
               <RotatingLines

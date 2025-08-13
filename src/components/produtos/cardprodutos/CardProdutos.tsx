@@ -11,8 +11,8 @@ function CardProdutos({ produto }: CardProdutosProps) {
       <div>
         <div className="flex w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 py-3 px-4 items-center gap-4">
           <img
-            src={produto.usuario?.foto}
-            className="h-12 w-12 rounded-full border-2 border-cyan-300 object-cover bg-slate-900"
+            // src={produto.usuario?.foto}
+            // className="h-12 w-12 rounded-full border-2 border-cyan-300 object-cover bg-slate-900"
             alt={produto.usuario?.nome}
           />
           <h3 className="text-lg font-bold text-white text-center uppercase drop-shadow">
@@ -24,8 +24,10 @@ function CardProdutos({ produto }: CardProdutosProps) {
             {produto.nome}
           </h4>
           <p className="text-cyan-100 mb-1">{produto.descricao}</p>
+          <p className="text-cyan-100 mb-1"> {Number(produto.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+          <p className="text-cyan-100 mb-1"> {produto.disponibilidade  ? 'Disponível' : 'Indisponível'}</p>
           <p className="text-cyan-200 text-sm">
-            Categoria:{' '}
+            Squad/Area:{' '}
             <span className="font-semibold">
               {produto.categoria?.descricao}
             </span>

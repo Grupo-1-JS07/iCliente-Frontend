@@ -56,28 +56,28 @@ function Sidebar() {
             className="sidebar-link neon-link flex items-center gap-3 py-3 px-4 rounded-xl transition-all hover:bg-cyan-400/10"
             onClick={() => setSidebarOpen(false)}
           >
-            <span>Produtos</span>
+            <span>Projetos</span>
           </Link>
           <Link
             to="/categorias"
             className="sidebar-link neon-link flex items-center gap-3 py-3 px-4 rounded-xl transition-all hover:bg-cyan-400/10"
             onClick={() => setSidebarOpen(false)}
           >
-            <span>Categorias</span>
+            <span>Squads/Areas</span>
           </Link>
           <Link
             to="/cadastrarproduto"
             className="sidebar-link neon-link flex items-center gap-3 py-3 px-4 rounded-xl transition-all hover:bg-cyan-400/10"
             onClick={() => setSidebarOpen(false)}
           >
-            <span>Cadastrar Produto</span>
+            <span>Cadastrar Projeto</span>
           </Link>
           <Link
             to="/cadastrarcategorias"
             className="sidebar-link neon-link flex items-center gap-3 py-3 px-4 rounded-xl transition-all hover:bg-cyan-400/10"
             onClick={() => setSidebarOpen(false)}
           >
-            <span>Cadastrar Categoria</span>
+            <span>Cadastrar Squad/Area</span>
           </Link>
           <Link
             to="/perfil"

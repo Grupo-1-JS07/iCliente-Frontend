@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { buscar } from '../../services/Services';
+import { AuthContext } from '../../context/AuthContext';
+import { ToastAlerta } from '../../utils/ToastAlerta';
 
 interface Projeto {
   nome: string;
@@ -12,11 +15,13 @@ const statusList = ['Em planejamento', 'Em andamento', 'Concluído'];
 
 export default function Projetos() {
   const [projetos, setProjetos] = useState<Projeto[]>([]);
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario.token;
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    buscar(
-      '/produtos',
-      (data: any[]) => {
+  async function buscarProjetos() {
+    try {
+      await buscar('/produtos', (data: any[]) => {
         const projetosComStatus: Projeto[] = data.map((p) => ({
           nome: p.nome,
           status: statusList[Math.floor(Math.random() * statusList.length)],
@@ -26,10 +31,26 @@ export default function Projetos() {
             : 100,
         }));
         setProjetos(projetosComStatus);
-      },
-      {},
-    );
-  }, []);
+      }, {
+        headers: {
+          Authorization: token,
+        }
+      });
+    } catch (error: any) {
+      if (error.toString().includes('401')) {
+        handleLogout();
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (token === '') {
+      ToastAlerta('Você precisa estar logado!', 'info');
+      navigate('/');
+    } else {
+      buscarProjetos();
+    }
+  }, [token]);
 
   return (
     <div>
@@ -50,7 +71,7 @@ export default function Projetos() {
             <h2 className="text-xl font-bold text-cyan-300 flex items-center gap-2">
               <span role="img" aria-label="projeto">
                 💻
-              </span>{' '}
+              </span>
               {p.nome}
             </h2>
             <div className="flex items-center gap-2">
