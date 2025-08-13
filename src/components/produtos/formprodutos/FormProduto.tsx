@@ -1,16 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { type ChangeEvent, useState, useEffect, useContext } from 'react';
-import { RotatingLines } from 'react-loader-spinner';
-import { useNavigate, useParams } from 'react-router-dom';
-import { AuthContext } from '../../../context/AuthContext';
-import { buscar, atualizar, cadastrar } from '../../../services/Services';
-import type Produtos from '../../../models/Produtos';
-import type Categoria from '../../../models/Categorias';
-import { ToastAlerta } from '../../../utils/ToastAlerta';
+import { type ChangeEvent, useState, useEffect, useContext } from "react";
+import { RotatingLines } from "react-loader-spinner";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
+import { buscar, atualizar, cadastrar } from "../../../services/Services";
+import type Produtos from "../../../models/Produtos";
+import type Categoria from "../../../models/Categorias";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
+import { NumericFormat } from "react-number-format";
 
 function FormProduto() {
   const navigate = useNavigate();
-  const [produto, setProduto] = useState<Produtos>({disponibilidade: false,} as Produtos);
+  const [produto, setProduto] = useState<Produtos>({
+    disponibilidade: false,
+  } as Produtos);
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,11 +25,11 @@ function FormProduto() {
   async function buscarCategorias() {
     setCarregandoCategoria(true);
     try {
-      await buscar('/categorias', setCategorias, {
+      await buscar("/categorias", setCategorias, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
-      if (error.toString().includes('401')) {
+      if (error.toString().includes("401")) {
         handleLogout();
       }
     }
@@ -40,16 +43,16 @@ function FormProduto() {
       });
       setCategoria(produto.categoria || ({} as Categoria));
     } catch (error: any) {
-      if (error.toString().includes('401')) {
+      if (error.toString().includes("401")) {
         handleLogout();
       }
     }
   }
 
   useEffect(() => {
-    if (token === '') {
-      ToastAlerta('Você precisa estar logado!', 'info');
-      navigate('/');
+    if (token === "") {
+      ToastAlerta("Você precisa estar logado!", "info");
+      navigate("/");
     }
   }, [navigate, token]);
 
@@ -83,12 +86,12 @@ function FormProduto() {
         await atualizar(`/produtos`, { ...produto }, setProduto, {
           headers: { Authorization: token },
         });
-        ToastAlerta('Produto atualizado com sucesso!', 'sucesso');
+        ToastAlerta("Produto atualizado com sucesso!", "sucesso");
       } catch (error: any) {
-        if (error.toString().includes('401')) {
+        if (error.toString().includes("401")) {
           handleLogout();
         } else {
-          ToastAlerta('Erro ao atualizar o produto!', 'erro');
+          ToastAlerta("Erro ao atualizar o produto!", "erro");
         }
       }
     } else {
@@ -96,12 +99,12 @@ function FormProduto() {
         await cadastrar(`/produtos`, { ...produto }, setProduto, {
           headers: { Authorization: token },
         });
-        ToastAlerta('Produto cadastrado com sucesso!', 'sucesso');
+        ToastAlerta("Produto cadastrado com sucesso!", "sucesso");
       } catch (error: any) {
-        if (error.toString().includes('401')) {
+        if (error.toString().includes("401")) {
           handleLogout();
         } else {
-          ToastAlerta('Erro ao cadastrar o produto!', 'erro');
+          ToastAlerta("Erro ao cadastrar o produto!", "erro");
         }
       }
     }
@@ -110,10 +113,10 @@ function FormProduto() {
   }
 
   function retornar() {
-    navigate('/produtos');
+    navigate("/produtos");
   }
 
-return (
+  return (
     <div className="container flex flex-col items-center justify-center mx-auto min-h-screen">
       <h1 className="text-4xl text-center my-8 text-cyan-300 font-extrabold drop-shadow-[0_2px_20px_rgba(0,255,255,0.7)]">
         {id === undefined ? "Cadastrar Projeto" : "Editar Projeto"}
@@ -142,7 +145,7 @@ return (
           </label>
           <input
             type="text"
-            placeholder="Digite o nome do projeto"
+            placeholder="Digite a descrição do projeto"
             name="descricao"
             className="bg-transparent border border-cyan-400/60 rounded px-4 py-2 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400/80 placeholder-cyan-400/60"
             value={produto.descricao || ""}
@@ -153,19 +156,23 @@ return (
 
         <div className="flex flex-col gap-2">
           <label
-            htmlFor="descricao"
+            htmlFor="preco"
             className="text-cyan-200 text-sm font-semibold"
           >
             Preço do Projeto:
           </label>
-          <input
-            type="number"
-            placeholder="Preço do projeto"
-            name="preco"
-            className="bg-transparent border border-cyan-400/60 rounded px-4 py-2 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400/80 placeholder-cyan-400/60"
+          <NumericFormat
             value={produto.preco || ""}
-            onChange={(e) =>
-              setProduto({ ...produto, preco: Number(e.target.value) })
+            thousandSeparator="."
+            decimalSeparator=","
+            prefix="R$ "
+            decimalScale={2}
+            fixedDecimalScale
+            allowNegative={false}
+            placeholder="Preço do projeto"
+            className="bg-transparent border border-cyan-400/60 rounded px-4 py-2 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400/80 placeholder-cyan-400/60"
+            onValueChange={(values) =>
+              setProduto({ ...produto, preco: Number(values.value) })
             }
             required
           />
