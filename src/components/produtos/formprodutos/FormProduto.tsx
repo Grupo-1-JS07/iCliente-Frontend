@@ -77,9 +77,10 @@ function FormProduto() {
   async function gerarNovoProduto(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsLoading(true);
+    produto.preco = Number(produto.preco);
     if (id !== undefined) {
       try {
-        await atualizar(`/produtos`, { ...produto, categoria }, setProduto, {
+        await atualizar(`/produtos`, { ...produto }, setProduto, {
           headers: { Authorization: token },
         });
         ToastAlerta('Produto atualizado com sucesso!', 'sucesso');
