@@ -1,30 +1,30 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/home/Home';
-import Leads from './pages/leads/Leads';
-import Projetos from './pages/projetos/Projetos';
-import Roadmap from './pages/roadmap/Roadmap';
-import Equipe from './pages/equipe/Equipe';
-import Relatorios from './pages/relatorios/Relatorios';
-import Integracoes from './pages/integracoes/Integracoes';
-import Navbar from './components/navbar/Navbar';
-import Sidebar from './components/layout/Sidebar';
-import { SidebarProvider } from './context/SidebarContext';
-import { useContext } from 'react';
-import { AuthContext } from './context/AuthContext';
-import Footer from './components/footer/Footer';
-import ListaCategorias from './components/categorias/listacategorias/listaCategorias';
-import FormCategoria from './components/categorias/formcategorias/formCategorias';
-import DeletarCategoria from './components/categorias/deletarcategorias/deletarCategorias';
-import Login from './pages/login/Login';
-import Perfil from './pages/perfil/Perfil';
-import { AuthProvider } from './context/AuthContext';
-import Cadastro from './pages/cadastro/Cadastro';
-import ListaProdutos from './components/produtos/listarprodutos/ListaProdutos';
-import FormProduto from './components/produtos/formprodutos/FormProduto';
-import DeletarProduto from './components/produtos/deletarprodutos/DeletarProdutos';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Leads from "./pages/leads/Leads";
+import Projetos from "./pages/projetos/Projetos";
+import Roadmap from "./pages/roadmap/Roadmap";
+import Equipe from "./pages/equipe/Equipe";
+import Relatorios from "./pages/relatorios/Relatorios";
+import Integracoes from "./pages/integracoes/Integracoes";
+import Navbar from "./components/navbar/Navbar";
+import Sidebar from "./components/layout/Sidebar";
+import { SidebarProvider } from "./context/SidebarContext";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
+import Footer from "./components/footer/Footer";
+import ListaCategorias from "./components/categorias/listacategorias/listaCategorias";
+import FormCategoria from "./components/categorias/formcategorias/formCategorias";
+import DeletarCategoria from "./components/categorias/deletarcategorias/deletarCategorias";
+import Login from "./pages/login/Login";
+import Perfil from "./pages/perfil/Perfil";
+import { AuthProvider } from "./context/AuthContext";
+import Cadastro from "./pages/cadastro/Cadastro";
+import ListaProdutos from "./components/produtos/listarprodutos/ListaProdutos";
+import FormProduto from "./components/produtos/formprodutos/FormProduto";
+import DeletarProduto from "./components/produtos/deletarprodutos/DeletarProdutos";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
       <SidebarProvider>
         <ToastContainer />
         <BrowserRouter>
-          <div className="app-container min-h-screen flex flex-col md:flex-row">
+          <div className="app-container min-h-screen flex flex-col md:flex-row bg-gradient-to-br from-[#0f0026] via-[#1a0a3c] to-[#0a0026]">
             <SidebarWrapper />
             <div className="flex-1 flex flex-col min-h-screen">
               <NavbarWrapper />
