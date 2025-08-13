@@ -17,61 +17,61 @@ interface MembroEquipe {
 
 const equipeFixa: MembroEquipe[] = [
   {
+    nome: 'Brenndha',
+    cargo: 'Dev Full Stack JavaScript',
+    skills: ['Gestão de Produto', 'Scrum', 'Kanban'],
+    contato: 'brenndha@icliente.com',
+    foto: Brenndha,
+    bio: 'Suporte ao time com foco em documentação e padrões visuais.'
+  },
+  {
     nome: 'Daniel',
-    cargo: 'Desenvolvedor Backend',
+    cargo: 'Dev Full Stack JavaScript',
     skills: ['Node.js', 'NestJS', 'SQL'],
     contato: 'daniel@icliente.com',
     foto: Daniel,
-    bio: 'Cria APIs robustas e escaláveis para dar vida às funcionalidades.'
-  },
-  {
-    nome: 'Brenndha',
-    cargo: 'Desenvolvedora Frontend',
-    skills: ['React', 'TypeScript', 'CSS', 'HTML'],
-    contato: 'brenndha@icliente.com',
-    foto: Brenndha,
-    bio: 'Transforma requisitos em interfaces funcionais e responsivas.'
+    bio: 'Focado no backend, entrega APIs escaláveis e bem estruturadas.'
   },
   {
     nome: 'Kannanda',
-    cargo: 'Product Owner',
-    skills: ['Gestão de Produto', 'Scrum', 'Kanban'],
+    cargo: 'Dev Full Stack JavaScript',
+    skills: ['React', 'TypeScript', 'CSS', 'HTML'],
     contato: 'kannanda@icliente.com',
     foto: Kannanda,
-    bio: 'Traduz necessidades de negócio em soluções claras para o time.'
+    bio: 'Conecta visão de produto com desenvolvimento frontend.'
   },
   {
     nome: 'Monique',
-    cargo: 'QA Engineer',
+    cargo: 'Dev Full Stack JavaScript',
     skills: ['Jest', 'Cypress', 'Testes Automatizados'],
     contato: 'monique@icliente.com',
     foto: Monique,
-    bio: 'Garante que cada entrega seja funcional, estável e livre de bugs.'
+    bio: 'Apoia a qualidade com testes e documentação técnica.'
   },
   {
     nome: 'Rafael',
-    cargo: 'Desenvolvedor Full Stack',
-    skills: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'SQL'],
+    cargo: 'Dev Full Stack JavaScript',
+    skills: [ 'TypeScript', 'React', 'Node.js', 'SQL'],
     contato: 'rafael@icliente.com',
     foto: Rafael,
-    bio: 'Integra backend e frontend para entregar soluções completas.'
+    bio: 'Integra backend e frontend com domínio da stack JS.'
   },
   {
     nome: 'Sâmara',
-    cargo: 'Scrum Master',
-    skills: ['Scrum', 'Kanban', 'Facilitação de Times'],
+    cargo: 'Dev Full Stack JavaScript',
+    skills: ['Scrum', 'Kanban', 'TypeScript'],
     contato: 'samara@icliente.com',
     foto: Samara,
-    bio: 'Mantém o time focado, organizado e colaborando de forma eficiente.'
+    bio: 'Garante organização técnica e foco nas entregas backend.'
   },
   {
     nome: 'Sara',
-    cargo: 'Desenvolvedora Frontend',
+    cargo: 'Dev Full Stack JavaScript',
     skills: ['React', 'CSS', 'HTML', 'TypeScript'],
     contato: 'sara@icliente.com',
     foto: fotoSara,
-    bio: 'Cria experiências visuais fluidas e alinhadas à identidade do produto.'
-  }
+    bio: 'Focada no frontend, cria interfaces fluidas e alinhadas.'
+  },
 ];
 
 export default function Equipe() {
