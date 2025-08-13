@@ -23,10 +23,6 @@ body,
   color: #fff;
   /* Removido text-shadow neon */
 }
-.neon-box {
-}
-.neon-btn {
-}
 
 @keyframes bg-move {
   0% {

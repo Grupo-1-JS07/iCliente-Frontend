@@ -1,37 +1,60 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 import { buscar } from '../../services/Services';
+import { ToastAlerta } from '../../utils/ToastAlerta';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  // Métricas mockadas para visual TechConnect
-  const [clientes, setClientes] = useState(0);
+  const [usuarios, setUsuarios] = useState(0);
   const [produtos, setProdutos] = useState(0);
   const [categorias, setCategorias] = useState(0);
 
-  // Simulação de métricas tech
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario.token;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token === '') {
+      ToastAlerta('Você precisa estar logado!', 'info');
+      navigate('/');
+      return;
+    }
+
+    buscar('/usuarios/all', (data) => setUsuarios(data.length || 0), {
+      headers: { Authorization: token },
+    }).catch((err) => {
+      if (err.toString().includes('401')) handleLogout();
+    });
+
+    buscar('/produtos', (data) => setProdutos(data.length || 0), {
+      headers: { Authorization: token },
+    }).catch((err) => {
+      if (err.toString().includes('401')) handleLogout();
+    });
+
+    buscar('/categorias', (data) => setCategorias(data.length || 0), {
+      headers: { Authorization: token },
+    }).catch((err) => {
+      if (err.toString().includes('401')) handleLogout();
+    });
+  }, [token]);
+
+    // Simulação de métricas tech
   const metrics = [
     { label: 'Leads Ativos', value: 32, color: '#22d3ee', icon: '🚀' },
     { label: 'Projetos em Andamento', value: 5, color: '#a78bfa', icon: '💻' },
     { label: 'Features Entregues', value: 12, color: '#60a5fa', icon: '🧩' },
     { label: 'Tickets Abertos', value: 3, color: '#f472b6', icon: '🎫' },
-    { label: 'Clientes', value: clientes, color: '#06b6d4', icon: '👥' },
-    { label: 'Produtos', value: produtos, color: '#a3e635', icon: '📦' },
-    { label: 'Categorias', value: categorias, color: '#fbbf24', icon: '🏷️' },
+    { label: 'Clientes', value: usuarios, color: '#06b6d4', icon: '👥' },
+    { label: 'Projetos', value: produtos, color: '#a3e635', icon: '📦' },
+    { label: 'Squads/Areas', value: categorias, color: '#fbbf24', icon: '🏷️' },
   ];
 
-  // Notificações mockadas
-  const notifications = [
-    { id: 1, text: 'Novo lead: Startup X', time: 'há 2 min' },
-    { id: 2, text: 'Projeto "App Mobile" atualizado', time: 'há 10 min' },
-    { id: 3, text: 'Feature "Login Social" entregue', time: 'há 1h' },
-    { id: 4, text: 'Ticket #123 aberto', time: 'há 2h' },
+    const notifications = [
+    { id: 1, text: 'Novo cliente cadastrado', time: 'Há 5 min' },
+    { id: 2, text: 'Pedido #1023 foi concluído', time: 'Há 30 min' },
+    { id: 3, text: 'Categoria "Promoções" atualizada', time: 'Ontem' },
   ];
-
-  // Buscar dados reais do backend para clientes, produtos, categorias
-  useEffect(() => {
-    buscar('/usuarios/all', (data) => setClientes(data.length || 0), {});
-    buscar('/produtos', (data) => setProdutos(data.length || 0), {});
-    buscar('/categorias', (data) => setCategorias(data.length || 0), {});
-  }, []);
 
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-2 md:mt-4 px-2 md:px-4">
