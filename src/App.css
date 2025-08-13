@@ -1,15 +1,17 @@
-html,body,#root{
+html,
+body,
+#root {
   height: 100%;
 }
-.app-container{
+.app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 .app-container main {
-  flex:1;
+  flex: 1;
 }
-/* Neon link effect for navbar */
+
 .neon-link {
   position: relative;
   color: #a5f3fc;
@@ -19,19 +21,11 @@ html,body,#root{
 .neon-link:hover,
 .neon-link:focus {
   color: #fff;
-  text-shadow:
-    0 0 8px #00fff7,
-    0 0 16px #6d28d9;
+  /* Removido text-shadow neon */
 }
 .neon-box {
-  box-shadow:
-    0 0 24px 4px #00fff7,
-    0 0 80px 0 #6d28d9;
 }
 .neon-btn {
-  box-shadow:
-    0 0 16px 2px #00fff7,
-    0 0 32px 0 #6d28d9;
 }
 
 @keyframes bg-move {
@@ -48,19 +42,25 @@ html,body,#root{
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.10);
-  box-shadow: 0 8px 32px 0 rgba(0,255,255,0.15);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.15);
   backdrop-filter: blur(16px) saturate(180%);
   border-radius: 18px;
-  border: 1.5px solid rgba(0,255,255,0.18);
+  border: 1.5px solid rgba(0, 255, 255, 0.18);
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 .animate-fade-in {
-  animation: fade-in 0.8s cubic-bezier(.4,0,.2,1);
+  animation: fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ::-webkit-scrollbar {
@@ -73,40 +73,83 @@ html,body,#root{
 }
 
 .dashboard-card {
-  background: rgb(50, 3, 56);
-  box-shadow:
-    0 0 24px 4px #00fff7,
-    0 0 80px 0 #6d28d9,
-    0 8px 32px 0 rgba(15, 124, 124, 0.15);
-  backdrop-filter: blur(16px) saturate(180%);
-  border-radius: 1rem; /* rounded-2xl */
-  border: 1.5px solid rgba(0,255,255,0.18);
-  padding: 1.5rem; /* p-6 */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.1) 0%,
+      rgba(168, 139, 250, 0.1) 100%
+    ),
+    rgba(50, 3, 56, 0.95);
+  backdrop-filter: blur(24px) saturate(200%);
+  border-radius: 1.5rem; /* mais arredondado */
+  border: 2px solid #00fff7;
+  padding: 1.7rem; /* p-7 */
   min-width: 220px;
   min-height: 120px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  gap: 0.7rem;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    border 0.3s;
+  animation: glass-fade-in 1.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .dashboard-card:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 24px 4px #00fff7,
-    0 0 80px 0 #6d28d9,
-    0 8px 32px 0 rgba(0,255,255,0.15),
-    0 25px 50px -12px rgba(0,0,0,0.25); 
+  transform: scale(1.06) rotate(-1deg);
+  border: 2.5px solid #a78bfa;
+  filter: brightness(1.08);
+}
+
+@keyframes glass-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 .futuristic-btn {
   box-shadow:
     0 0 16px 2px #00fff7,
     0 0 32px 0 #6d28d9;
-  padding: 0.5rem 1.5rem; 
-  border-radius: 0.75rem; 
-  font-weight: bold; 
-  background: linear-gradient(90deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%); 
-  color: #fff; 
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); 
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%);
+  color: #fff;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 8px #00fff7,
+    0 0 16px #6d28d9;
+}
+.futuristic-btn:hover {
+  filter: brightness(1.18) drop-shadow(0 0 12px #00fff7);
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.futuristic-btn {
+  box-shadow:
+    0 0 16px 2px #00fff7,
+    0 0 32px 0 #6d28d9;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%);
+  color: #fff;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   transition: all 0.2s;
   border: none;
   outline: none;
@@ -114,5 +157,4 @@ html,body,#root{
 }
 .futuristic-btn:hover {
   filter: brightness(1.15) drop-shadow(0 0 8px #00fff7);
-}
 }

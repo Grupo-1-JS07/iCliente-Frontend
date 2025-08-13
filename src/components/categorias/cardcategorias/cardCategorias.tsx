@@ -6,14 +6,27 @@ interface CardCategoriasProps {
 }
 
 function CardCategorias({ categoria }: CardCategoriasProps) {
+  const projetos = categoria.produto || [];
   return (
     <div className="bg-gradient-to-br from-[#1a0a3c]/80 to-[#0a0026]/80 border border-cyan-400/40 shadow-2xl rounded-2xl flex flex-col overflow-hidden justify-between neon-box hover:scale-105 transition-transform duration-200">
       <header className="py-3 px-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-white font-bold text-2xl text-center drop-shadow">
-        Categoria
+        Squad / Área
       </header>
-      <p className="p-8 text-2xl text-cyan-100 bg-transparent h-full text-center font-semibold">
-        {categoria.descricao}
-      </p>
+      <div className="flex flex-col gap-2 p-6 flex-1 justify-center items-center">
+        <span className="text-cyan-100 text-xl font-semibold text-center mb-2">
+          {categoria.descricao}
+        </span>
+        <span className="text-cyan-400 text-sm mb-2">
+          Projetos: {projetos.length}
+        </span>
+        {projetos.length > 0 && (
+          <ul className="text-cyan-200 text-xs text-left w-full pl-4 list-disc">
+            {projetos.map((p) => (
+              <li key={p.id}>{p.nome}</li>
+            ))}
+          </ul>
+        )}
+      </div>
       <div className="flex">
         <Link
           to={`/editarcategoria/${categoria.id}`}

@@ -43,10 +43,10 @@ function ListaCategorias() {
     <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-[#0f0026] via-[#1a0a3c] to-[#0a0026] animate-bg-move py-8">
       <div className="w-full max-w-6xl flex flex-col items-center mb-8">
         <h1 className="text-cyan-300 text-4xl font-extrabold text-center mb-2 drop-shadow-[0_2px_20px_rgba(0,255,255,0.7)]">
-          Categorias
+          Squads & Áreas
         </h1>
         <p className="text-cyan-200 text-lg text-center mb-4">
-          Gerencie as categorias do seu sistema.
+          Organize as squads, áreas e especialidades tech da sua startup!
         </p>
       </div>
       {categorias.length === 0 ? (
