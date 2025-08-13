@@ -13,7 +13,7 @@ function Footer() {
             draggable="false"
           />
           <span className="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 tracking-widest">
-            iCLIENTE
+            iCliente
           </span>
         </div>
         <p className="text-base font-bold">
