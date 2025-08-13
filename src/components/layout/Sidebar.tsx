@@ -47,7 +47,7 @@ function Sidebar() {
             draggable="false"
           />
           <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 tracking-widest drop-shadow-[0_2px_10px_rgba(0,255,255,0.7)]">
-            iCLIENTE
+            iCliente
           </span>
         </div>
         <nav className="flex flex-col gap-2 px-4 mt-4">
