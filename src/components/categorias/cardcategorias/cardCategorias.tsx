@@ -8,40 +8,33 @@ interface CardCategoriasProps {
 function CardCategorias({ categoria }: CardCategoriasProps) {
   const projetos = categoria.produto || [];
   return (
-    <div className="bg-gradient-to-br from-[#1a0a3c]/80 to-[#0a0026]/80 border border-cyan-400/40 shadow-2xl rounded-2xl flex flex-col overflow-hidden justify-between neon-box hover:scale-105 transition-transform duration-200">
-      <header className="py-3 px-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-white font-bold text-2xl text-center drop-shadow">
-        Squad / Área
-      </header>
-      <div className="flex flex-col gap-2 p-6 flex-1 justify-center items-center">
-        <span className="text-cyan-100 text-xl font-semibold text-center mb-2">
-          {categoria.descricao}
-        </span>
-        <span className="text-cyan-400 text-sm mb-2">
-          Projetos: {projetos.length}
-        </span>
+    <li className="border-b border-cyan-400/40 py-4 px-2 flex flex-col md:flex-row md:items-center justify-between hover:bg-[#1a0a3c]/40 transition-all">
+      <div>
+        <strong className="text-cyan-300 text-lg">{categoria.descricao}</strong>
+        <span className="text-cyan-400 ml-2">Projetos: {projetos.length}</span>
         {projetos.length > 0 && (
-          <ul className="text-cyan-200 text-xs text-left w-full pl-4 list-disc">
+          <ul className="text-cyan-200 text-xs pl-4 list-disc mt-2">
             {projetos.map((p) => (
               <li key={p.id}>{p.nome}</li>
             ))}
           </ul>
         )}
       </div>
-      <div className="flex">
+      <div className="flex gap-2 mt-2 md:mt-0">
         <Link
           to={`/editarcategoria/${categoria.id}`}
-          className="w-1/2 text-white bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 hover:from-cyan-300 hover:to-purple-400 font-bold flex items-center justify-center py-2 transition-all duration-200 neon-btn rounded-bl-2xl"
+          className="text-white bg-cyan-500 hover:bg-cyan-400 font-bold py-1 px-3 rounded transition-all"
         >
           Editar
         </Link>
         <Link
           to={`/deletarcategoria/${categoria.id}`}
-          className="w-1/2 text-white bg-gradient-to-r from-red-400 via-pink-500 to-purple-500 hover:from-red-300 hover:to-purple-400 font-bold flex items-center justify-center py-2 transition-all duration-200 neon-btn rounded-br-2xl"
+          className="text-white bg-pink-500 hover:bg-pink-400 font-bold py-1 px-3 rounded transition-all"
         >
           Deletar
         </Link>
       </div>
-    </div>
+    </li>
   );
 }
 

@@ -59,11 +59,11 @@ function ListaCategorias() {
           wrapperClass="dna-wrapper mx-auto"
         />
       ) : (
-        <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        <ul className="w-full max-w-4xl mx-auto bg-[#1a0a3c]/40 rounded-lg shadow-lg divide-y divide-cyan-400/20 px-4 py-2">
           {categorias.map((categoria) => (
             <CardCategorias key={categoria.id} categoria={categoria} />
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );
