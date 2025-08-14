@@ -112,15 +112,15 @@ function Home() {
   ];
 
   // Exportação de dados
-  const exportarPDF = () => {
-    const doc = new jsPDF();
-    doc.text('Relatório de Métricas', 10, 10);
-    doc.autoTable({
-      head: [['Métrica', 'Valor']],
-      body: metrics.map((m) => [m.label, m.value]),
-    });
-    doc.save('relatorio-metricas.pdf');
-  };
+  // const exportarPDF = () => {
+  //   const doc = new jsPDF();
+  //   doc.text('Relatório de Métricas', 10, 10);
+  //   doc.autoTable({
+  //     head: [['Métrica', 'Valor']],
+  //     body: metrics.map((m) => [m.label, m.value]),
+  //   });
+  //   doc.save('relatorio-metricas.pdf');
+  // };
 
   // Widget de feedback
   const [feedback, setFeedback] = useState('');
@@ -248,7 +248,7 @@ function Home() {
           Projetos
         </a>
         <button
-          onClick={exportarPDF}
+          // onClick={exportarPDF}
           className="bg-cyan-700 text-white font-bold py-2 px-4 rounded shadow transition"
         >
           Exportar PDF
