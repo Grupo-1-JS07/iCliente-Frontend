@@ -2,7 +2,7 @@
 
 **iCliente** é um sistema web moderno para gestão de clientes, desenvolvido em equipe com **React** e **TypeScript**, que prioriza usabilidade, visual limpo e funcionalidades essenciais para empresas de tecnologia como consultorias e software houses.
 
-🌐 **Deploy ao vivo:** [Clique aqui!](https://icomida.netlify.app/home)
+🌐 **Deploy ao vivo:** [Clique aqui!](https://icliente.netlify.app/)
 
 ---
 
