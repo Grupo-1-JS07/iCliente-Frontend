@@ -2,7 +2,7 @@ import Daniel from '../../assets/img/Daniel.jpg';
 import Brenndha from '../../assets/img/Brenndha.jpg';
 import Kannanda from '../../assets/img/kannanda.jpg';
 import Monique from '../../assets/img/Monique.jpg';
-import Rafael from '../../assets/img/Rafael.jpg';
+import Rafael from '../../assets/img/rafael.jpg';
 import Samara from '../../assets/img/Samara.jpeg';
 import fotoSara from '../../assets/img/sara.jpg';
 
