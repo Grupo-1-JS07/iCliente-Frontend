@@ -25,6 +25,7 @@ import FormProduto from "./components/produtos/formprodutos/FormProduto";
 import DeletarProduto from "./components/produtos/deletarprodutos/DeletarProdutos";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import AtualizarPerfil from "./components/perfil/AtualizarPerfil";
 
 function App() {
   return (
@@ -68,6 +69,10 @@ function App() {
                   <Route
                     path="/deletarproduto/:id"
                     element={<DeletarProduto />}
+                  />
+                  <Route
+                    path="/atualizarperfil"
+                    element={<AtualizarPerfil />}
                   />
                 </Routes>
               </main>

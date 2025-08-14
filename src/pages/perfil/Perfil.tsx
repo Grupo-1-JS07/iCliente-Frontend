@@ -1,7 +1,7 @@
-import { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
-import { ToastAlerta } from '../../utils/ToastAlerta';
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Perfil() {
   const navigate = useNavigate();
@@ -9,9 +9,9 @@ function Perfil() {
   const { usuario } = useContext(AuthContext);
 
   useEffect(() => {
-    if (usuario.token === '') {
-      ToastAlerta('Você precisa estar logado!', 'info');
-      navigate('/');
+    if (usuario.token === "") {
+      ToastAlerta("Você precisa estar logado!", "info");
+      navigate("/");
     }
   }, [usuario.token]);
 
@@ -29,8 +29,8 @@ function Perfil() {
             src={usuario.foto}
             alt={`Foto de perfil de ${usuario.nome}`}
             onError={(e) =>
-            (e.currentTarget.src =
-              'https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff')
+              (e.currentTarget.src =
+                "https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff")
             }
           />
           <div className="mt-6 flex flex-col items-center gap-2 w-full px-6 pb-8">
@@ -40,6 +40,13 @@ function Perfil() {
             <p className="text-cyan-100 text-lg text-center break-all">
               {usuario.usuario}
             </p>
+            <div>
+              <Link to={"/atualizarperfil"}>
+                <button className="border-2 rounded-full bg-amber-50 px-1.5 hover:bg-amber-950">
+                  Atualizar Perfil
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

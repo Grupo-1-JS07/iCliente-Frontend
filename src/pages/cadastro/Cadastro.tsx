@@ -1,25 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useEffect, type ChangeEvent, type FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, type ChangeEvent, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 // import './cadastro.css'
-import { RotatingLines } from 'react-loader-spinner';
-import type Usuario from '../../models/Usuarios';
-import { cadastrarUsuario } from '../../services/Services';
-import { ToastAlerta } from '../../utils/ToastAlerta';
+import { RotatingLines } from "react-loader-spinner";
+import type Usuario from "../../models/Usuarios";
+import { cadastrarUsuario } from "../../services/Services";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Cadastro() {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const [confirmaSenha, setConfirmaSenha] = useState<string>('');
+  const [confirmaSenha, setConfirmaSenha] = useState<string>("");
 
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
-    nome: '',
-    usuario: '',
-    senha: '',
-    foto: '',
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: "",
   });
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function Cadastro() {
   }, [usuario]);
 
   function retornar() {
-    navigate('/login');
+    navigate("/login");
   }
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
@@ -51,16 +51,17 @@ function Cadastro() {
 
       try {
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
-        ToastAlerta('Usuário cadastrado com sucesso!', 'sucesso');
+        ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
       } catch (error) {
-        ToastAlerta('Erro ao cadastrar o usuário!', 'erro');
+        ToastAlerta("Erro ao cadastrar o usuário!", "erro");
       }
     } else {
       ToastAlerta(
-        'Dados do usuário inconsistentes! Verifique as informações do cadastro.', 'info'
+        "Dados do usuário inconsistentes! Verifique as informações do cadastro.",
+        "info"
       );
-      setUsuario({ ...usuario, senha: '' });
-      setConfirmaSenha('');
+      setUsuario({ ...usuario, senha: "" });
+      setConfirmaSenha("");
     }
 
     setIsLoading(false);
