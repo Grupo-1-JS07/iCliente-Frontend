@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../context/AuthContext';
-// import { ToastAlerta } from '../../utils/ToastAlerta';
 
 import { useSidebar } from '../../context/SidebarContext';
 
@@ -9,15 +7,15 @@ function Navbar() {
   const { sidebarOpen, toggleSidebar } = useSidebar();
   const [open, setOpen] = useState(false); // menu mobile
   const [dark, setDark] = useState(false); // modo escuro/claro
-  const [search, setSearch] = useState(''); // busca global
+  const [search, setSearch] = useState(''); // busca global (inicializado corretamente)
   const [showProfile, setShowProfile] = useState(false); // menu perfil
-  const [notifications, setNotifications] = useState(2); // badge notificações
   const [online, setOnline] = useState(true); // status conexão
+  const [notifications] = useState(2); // badge notificações
 
   // Simulação de nome/avatar
   const user = {
-    name: 'Usuário',
     avatar: 'https://ui-avatars.com/api/?name=U&background=0f0026&color=fff',
+    name: '',
   };
 
   // Detecta status de conexão
@@ -33,9 +31,9 @@ function Navbar() {
 
   return (
     <nav
-      className={`w-full sticky top-0 z-50 bg-gradient-to-r from-[#0f0026] via-[#1a0a3c] to-[#0a0026] text-white shadow-lg py-2 px-0 transition duration-300 ${dark ? 'dark' : ''}`}
+      className={`fixed top-0 left-0 w-full z-40 bg-gradient-to-r from-[#0f0026] via-[#1a0a3c] to-[#0a0026] text-white shadow-lg py-2 px-0 transition duration-300 ${dark ? 'dark' : ''}`}
     >
-      <div className="container mx-auto flex flex-row flex-nowrap items-center gap-4 px-4 min-h-[60px]">
+  <div className="flex flex-row flex-nowrap items-center gap-4 px-4 min-h-[60px] w-full">
         {/* Botão para abrir/fechar sidebar (sempre visível) */}
         <button
           className="flex items-center justify-center w-10 h-10 mr-2 focus:outline-none"
@@ -180,9 +178,7 @@ function Navbar() {
               alt="Avatar"
               className="w-8 h-8 rounded-full border-2 border-cyan-400"
             />
-            <span className="hidden md:inline-block text-cyan-200 font-bold">
-              {user.name}
-            </span>
+            {/* Nome do usuário removido */}
           </button>
           {/* Menu de perfil */}
           {showProfile && (
@@ -204,7 +200,7 @@ function Navbar() {
           )}
         </div>
         {/* Menu desktop */}
-        <div className="hidden md:flex gap-6 text-lg">
+  <div className="hidden md:flex gap-6 text-lg overflow-x-auto max-w-full">
           <Link to="/home" className="neon-link group">
             Dashboard
             <span className="block h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />

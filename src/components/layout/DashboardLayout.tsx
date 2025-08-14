@@ -1,12 +1,14 @@
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import type { ReactNode } from 'react';
+import { useSidebar } from '../../context/SidebarContext';
 
 interface DashboardLayoutProps {
   children: ReactNode;
 }
 
 function DashboardLayout({ children }: DashboardLayoutProps) {
+  const { sidebarOpen } = useSidebar();
   return (
     <div
       className="min-h-screen flex animate-bg-move"
@@ -16,7 +18,9 @@ function DashboardLayout({ children }: DashboardLayoutProps) {
       }}
     >
       <Sidebar />
-      <div className="flex-1 flex flex-col min-h-screen ml-0 md:ml-64">
+      <div
+        className={`flex-1 flex flex-col min-h-screen transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-0'}`}
+      >
         <Topbar />
         <main
           className="flex-1 pt-24 pb-6 px-2 md:px-6 lg:px-10"

@@ -11,7 +11,7 @@ function Sidebar() {
   // Sidebar oculta em telas pequenas, controlada pelo contexto
   return (
     <aside
-      className={`h-screen w-64 bg-white/10 backdrop-blur-xl border-r border-cyan-400/20 shadow-2xl flex flex-col justify-between fixed left-0 top-0 z-40 transition-all duration-300 ${sidebarOpen ? 'block' : 'hidden'}`}
+      className={`h-screen w-64 bg-white/10 backdrop-blur-xl border-r border-cyan-400/20 shadow-2xl flex flex-col justify-between fixed left-0 top-0 z-[100] transition-all duration-300 ${sidebarOpen ? 'block' : 'hidden'}`}
       style={{
         boxShadow: '0 8px 32px 0 rgba(0,255,255,0.15), 0 1.5px 0 0 #6d28d9',
       }}

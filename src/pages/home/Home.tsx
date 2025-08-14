@@ -157,7 +157,7 @@ function Home() {
   ];
 
   return (
-    <div className="w-full flex flex-col gap-8 mt-2 md:mt-4 px-2 md:px-4">
+    <div className="w-full min-w-0 flex flex-col gap-8 mt-2 md:mt-4 px-2 md:px-4">
       {/* Resumo rápido + cards de tendência */}
       <div className="flex flex-wrap gap-4 justify-center mb-2">
         {tendencia.map((t) => (
