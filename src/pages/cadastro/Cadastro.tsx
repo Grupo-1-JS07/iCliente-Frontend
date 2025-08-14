@@ -46,9 +46,18 @@ function Cadastro() {
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    const urlPattern = /^(https?:\/\/[^\s]+)$/; // Aceita http ou https
+
+    if (usuario.foto && !urlPattern.test(usuario.foto)) {
+      ToastAlerta(
+        "Por favor, insira uma URL válida para a foto ou deixe em branco.",
+        "info"
+      );
+      return;
+    }
+
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
       setIsLoading(true);
-
       try {
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
         ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
@@ -63,7 +72,6 @@ function Cadastro() {
       setUsuario({ ...usuario, senha: "" });
       setConfirmaSenha("");
     }
-
     setIsLoading(false);
   }
 
