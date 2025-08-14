@@ -15,8 +15,8 @@ import {
   Line,
 } from 'recharts';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-// ...existing code...
+// import 'jspdf-autotable';
+
 import { AuthContext } from '../../context/AuthContext';
 import { buscar } from '../../services/Services';
 import { ToastAlerta } from '../../utils/ToastAlerta';

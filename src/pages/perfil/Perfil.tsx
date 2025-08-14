@@ -42,7 +42,7 @@ function Perfil() {
             </p>
             <div>
               <Link to={"/atualizarperfil"}>
-                <button className="border-2 rounded-full bg-amber-50 px-1.5 hover:bg-amber-950">
+                <button className="border-2 rounded-full bg-indigo-950 px-1.5 text-cyan-100">
                   Atualizar Perfil
                 </button>
               </Link>

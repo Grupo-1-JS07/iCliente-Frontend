@@ -31,7 +31,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-40 bg-gradient-to-r from-[#0f0026] via-[#1a0a3c] to-[#0a0026] text-white shadow-lg py-2 px-0 transition duration-300 ${dark ? 'dark' : ''}`}
+      className={`top-0 left-0 w-full z-40 bg-gradient-to-r from-[#0f0026] via-[#1a0a3c] to-[#0a0026] text-white shadow-lg py-2 px-0 transition duration-300 ${dark ? 'dark' : ''}`}
     >
   <div className="flex flex-row flex-nowrap items-center gap-4 px-4 min-h-[60px] w-full">
         {/* Botão para abrir/fechar sidebar (sempre visível) */}

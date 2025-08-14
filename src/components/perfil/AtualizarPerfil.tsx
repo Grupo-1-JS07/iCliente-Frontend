@@ -71,9 +71,9 @@ function AtualizarPerfil() {
     <div className="flex justify-center">
       <form
         onSubmit={handleSubmit}
-        className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md space-y-4"
+        className="bg-cyan-800 p-6 rounded-lg shadow-lg w-full max-w-md space-y-4"
       >
-        <h2 className="text-xl text-white font-bold">Atualizar Perfil</h2>
+        <h2 className="bg-cyan-800 text-xl text-white font-bold">Atualizar Perfil</h2>
 
         <input
           type="text"
