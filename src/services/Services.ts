@@ -1,8 +1,7 @@
 import axios from "axios";
-import { env } from "process";
 
 const api = axios.create({
-  baseURL: env.VITE_API_URL,
+  baseURL: process.env.VITE_API_URL,
 });
 
 console.log("api", api);
