@@ -14,7 +14,7 @@ import {
   LineChart,
   Line,
 } from 'recharts';
-import jsPDF from 'jspdf';
+// import jsPDF from 'jspdf';
 // import 'jspdf-autotable';
 
 import { AuthContext } from '../../context/AuthContext';

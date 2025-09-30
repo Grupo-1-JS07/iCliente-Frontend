@@ -55,12 +55,12 @@ function DeletarProduto() {
         },
       });
 
-      ToastAlerta("Produto apagado com sucesso!", 'sucesso');
+      ToastAlerta("Projeto apagado com sucesso!", 'sucesso');
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
       } else {
-        ToastAlerta("Erro ao deletar o produto!", 'erro');
+        ToastAlerta("Erro ao deletar o projeto!", 'erro');
       }
     }
 
@@ -74,10 +74,10 @@ function DeletarProduto() {
 
   return (
     <div className="container w-1/3 mx-auto">
-      <h1 className="text-4xl text-center my-4 text-white">Deletar Produto</h1>
+      <h1 className="text-4xl text-center my-4 text-white">Deletar Projeto</h1>
 
       <p className="text-center font-semibold mb-4 text-white">
-        Você tem certeza de que deseja apagar o produto a seguir?
+        Você tem certeza de que deseja apagar o projeto a seguir?
       </p>
 
       <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
