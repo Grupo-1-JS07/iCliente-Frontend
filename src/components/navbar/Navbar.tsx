@@ -205,16 +205,8 @@ function Navbar() {
             Dashboard
             <span className="block h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
           </Link>
-          <Link to="/leads" className="neon-link group">
-            Leads
-            <span className="block h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-          </Link>
           <Link to="/projetos" className="neon-link group">
             Projetos
-            <span className="block h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-          </Link>
-          <Link to="/roadmap" className="neon-link group">
-            Roadmap
             <span className="block h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
           </Link>
           <Link to="/equipe" className="neon-link group">
