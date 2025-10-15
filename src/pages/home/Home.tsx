@@ -241,19 +241,7 @@ function Home() {
         >
           Ver Relatórios
         </a>
-        {/* <a
-          href="/produtos"
-          className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded shadow transition"
-        >
-          Projetos
-        </a> */}
-        {/* <button
-          // onClick={exportarPDF}
-          className="bg-cyan-700 text-white font-bold py-2 px-4 rounded shadow transition"
-        >
-          Exportar PDF
-        </button>
-      </div> */}
+
 
       {/* Alertas importantes */}
       <div className="flex flex-col gap-2 mb-2">
