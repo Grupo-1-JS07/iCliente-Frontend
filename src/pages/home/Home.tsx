@@ -242,7 +242,7 @@ function Home() {
           Ver Relatórios
         </a>
         <a
-          href="/projetos"
+          href="/produtos"
           className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded shadow transition"
         >
           Projetos
